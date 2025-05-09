@@ -1,138 +1,212 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 /* Container principal */
 #root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-  }
-  
-  /* Logo */
-  .logo {
-    width: 100px;
-    margin: 20px auto;
-    transition: transform 300ms ease;
-    display: block;
-  }
-  .logo:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Títulos */
-  h1 {
-    color: #2e7d32;
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-  }
-  
-  h3 {
-    color: #444;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Container dos formulários */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background-color: #121212;
+  color: white;
+}
+
+/* Logo */
+.logo {
+  width: 100px;
+  margin: 20px auto;
+  transition: transform 300ms ease;
+  display: block;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Títulos */
+h1 {
+  color: #4CAF50;
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+h3 {
+  color: #cccccc;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+/* Container dos formulários */
+.formularios {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  background-color: #1f1f1f;
+  gap: 40px;
+  margin-top: 30px;
+  border-radius: 12px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+  transition: transform 0.3s ease;
+}
+
+.formularios:hover {
+  transform: scale(1.01);
+}
+
+/* Estilo dos formulários */
+form {
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  background-color: #fafafa;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Labels e inputs */
+form label {
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+}
+
+form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 200ms;
+}
+
+form input:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* Botões */
+form button,
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover,
+button:hover {
+  background-color: #43a047;
+}
+
+/* Barra entre os formulários */
+.barra {
+  width: 3px;
+  background-color: #000;
+  align-self: stretch;
+  border-radius: 10px;
+}
+
+/* Lista de Tarefas */
+.tarefa-item {
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 16px auto;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.tarefa-texto {
+  text-align: left;
+}
+
+.tarefa-texto h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.tarefa-texto p {
+  margin: 6px 0 10px;
+  color: #cccccc;
+  font-size: 15px;
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.badge.feita {
+  background-color: #28a745;
+  color: white;
+}
+
+.badge.pendente {
+  background-color: #ffc107;
+  color: black;
+}
+
+/* Ações */
+.tarefa-acoes {
+  display: flex;
+  gap: 12px;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.tarefa-acoes svg {
+  cursor: pointer;
+  color: #cccccc;
+  transition: color 0.2s ease;
+}
+
+.tarefa-acoes svg:hover {
+  color: #ffffff;
+}
+
+/* Rodapé */
+.read-the-docs {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
   .formularios {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-    background-color: #ffffff;
-    gap: 40px;
-    margin-top: 30px;
-    border-radius: 12px;
-    padding: 20px 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap;
-    transition: transform 0.3s ease;
-  }
-  
-  .formularios:hover {
-    transform: scale(1.01);
-  }
-  
-  /* Estilo dos formulários */
-  form {
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    background-color: #fafafa;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    display: flex;
     flex-direction: column;
-    gap: 12px;
+    align-items: center;
   }
-  
-  /* Labels e inputs */
-  form label {
-    text-align: left;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  form input {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-    color: #333; /* Cor do texto, você pode escolher uma cor mais visível */
-    transition: border-color 200ms;
-    background-color: #fff;
-  }
-  
-  form input:focus {
-    border-color: #4CAF50;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
-  }
-  
-  /* Botões dos formulários */
-  form button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-  }
-  
-  form button:hover {
-    background-color: #43a047;
-  }
-  
-  /* Barra entre os formulários */
+
   .barra {
-    width: 3px;
-    background-color: #000;
-    align-self: stretch;
-    border-radius: 10px;
+    width: 80%;
+    height: 2px;
+    background-color: black;
+    margin: 20px 0;
   }
-  
-  
-  /* Rodapé ou instruções */
-  .read-the-docs {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 14px;
-    color: #777;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .formularios {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .barra {
-      width: 80%;
-      height: 2px;
-      background-color: black;
-      margin: 20px 0;
-    }
-  }
-  
+}

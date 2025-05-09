@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: white;
+  }
+  
+  /* Container principal */
+  h1 {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 28px;
+    color: #ffffff;
+  }
+  
+  /* Estilo de cada tarefa */
+  .tarefa-item {
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 16px auto;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Texto da tarefa */
+  .tarefa-texto h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #ffffff;
+  }
+  
+  .tarefa-texto p {
+    margin: 6px 0 10px;
+    color: #cccccc;
+    font-size: 15px;
+  }
+  
+  /* Badge de status */
+  .badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+  }
+  
+  .badge.feita {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .badge.pendente {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  /* Ícones de ação */
+  .tarefa-acoes {
+    display: flex;
+    gap: 12px;
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  
+  .tarefa-acoes svg {
+    cursor: pointer;
+    color: #cccccc;
+    transition: color 0.2s ease;
+  }
+  
+  .tarefa-acoes svg:hover {
+    color: #ffffff;
+  }
+  
+  /* Botão de criar tarefa */
+  button {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

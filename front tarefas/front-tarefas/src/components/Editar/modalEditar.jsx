@@ -38,7 +38,7 @@ export default function ModalEditar({ isOpen, onClose, tarefa, atualizarTarefas 
     <div className="modal">
       <div className="modal-content">
         <h2>Editar Tarefa</h2>
-        
+
         <input
           type="text"
           value={titulo}
@@ -61,9 +61,10 @@ export default function ModalEditar({ isOpen, onClose, tarefa, atualizarTarefas 
           />
           <label>Marcar como feita</label>
         </div>
-
-        <button onClick={editarTarefa}>Salvar</button>
-        <button onClick={onClose}>Cancelar</button>
+        <div style={{ display: 'flex', gap: '1rem', width: '100%' }}>
+          <button onClick={onClose} className="btn-cancel">Cancelar</button>
+          <button onClick={editarTarefa} >Salvar</button>
+        </div>
       </div>
     </div>
   )

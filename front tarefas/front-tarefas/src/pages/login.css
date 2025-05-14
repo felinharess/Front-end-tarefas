@@ -1,212 +1,172 @@
-/* Reset básico */
+/* ===== VARIÁVEIS & RESET ===== */
+:root {
+  --primary: #4CAF50;
+  --primary-dark: #388E3C;
+  --dark-bg: #121212;
+  --card-bg: #1E1E1E;
+  --text-light: #E0E0E0;
+  --text-muted: #9E9E9E;
+  --border-radius: 12px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  transition: all 0.3s ease-out; /* Transição global suave */
 }
 
-/* Container principal */
+/* ===== LAYOUT PRINCIPAL ===== */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: center;
-  background-color: #121212;
-  color: white;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
 }
 
-/* Logo */
+/* ===== LOGO ===== */
 .logo {
   width: 100px;
   margin: 20px auto;
-  transition: transform 300ms ease;
   display: block;
-}
-.logo:hover {
-  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.3));
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Títulos */
+.logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px rgba(76, 175, 80, 0.5));
+}
+
+/* ===== TIPOGRAFIA ===== */
 h1 {
-  color: #4CAF50;
+  color: var(--primary);
   font-size: 2.8rem;
   margin-bottom: 1rem;
-  font-weight: bold;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
 }
 
 h3 {
-  color: #cccccc;
+  color: var(--text-muted);
   font-size: 1.3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  text-align: center;
 }
 
-/* Container dos formulários */
+/* ===== FORMULÁRIOS ===== */
 .formularios {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: stretch;
-  background-color: #1f1f1f;
+  background-color: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   gap: 40px;
   margin-top: 30px;
-  border-radius: 12px;
-  padding: 20px 30px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  flex-wrap: wrap;
-  transition: transform 0.3s ease;
+  border-radius: var(--border-radius);
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
 }
 
-.formularios:hover {
-  transform: scale(1.01);
-}
-
-/* Estilo dos formulários */
 form {
-  padding: 20px;
-  border-radius: 10px;
+  padding: 30px;
+  border-radius: var(--border-radius);
   width: 300px;
-  background-color: #fafafa;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
-/* Labels e inputs */
 form label {
   text-align: left;
   font-weight: 600;
-  color: #333;
+  color: var(--text-light);
+  font-size: 0.9rem;
 }
 
 form input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: calc(var(--border-radius) - 4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 15px;
-  color: #333;
-  background-color: #fff;
-  transition: border-color 200ms;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+form input::placeholder {
+  color: var(--text-muted);
 }
 
 form input:focus {
-  border-color: #4CAF50;
+  border-color: var(--primary);
   outline: none;
   box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
 }
 
-/* Botões */
-form button,
-button {
-  background-color: #4CAF50;
+/* ===== BOTÕES ===== */
+form button {
+  background-color: var(--primary);
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 6px;
+  padding: 14px;
+  border-radius: calc(var(--border-radius) - 4px);
   cursor: pointer;
   font-size: 16px;
+  font-weight: 600;
   margin-top: 10px;
-  transition: background-color 0.3s ease;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
-form button:hover,
-button:hover {
-  background-color: #43a047;
+form button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
-/* Barra entre os formulários */
+/* ===== BARRA DIVISÓRIA ===== */
 .barra {
-  width: 3px;
-  background-color: #000;
+  width: 1px;
+  background: linear-gradient(to bottom, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
   align-self: stretch;
-  border-radius: 10px;
 }
 
-/* Lista de Tarefas */
-.tarefa-item {
-  background-color: #1f1f1f;
-  border-radius: 8px;
-  padding: 16px 20px;
-  margin: 16px auto;
-  max-width: 600px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-.tarefa-texto {
-  text-align: left;
-}
-
-.tarefa-texto h3 {
-  margin: 0;
-  font-size: 20px;
-  color: #ffffff;
-}
-
-.tarefa-texto p {
-  margin: 6px 0 10px;
-  color: #cccccc;
-  font-size: 15px;
-}
-
-.badge {
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.badge.feita {
-  background-color: #28a745;
-  color: white;
-}
-
-.badge.pendente {
-  background-color: #ffc107;
-  color: black;
-}
-
-/* Ações */
-.tarefa-acoes {
-  display: flex;
-  gap: 12px;
-  font-size: 18px;
-  margin-top: 5px;
-}
-
-.tarefa-acoes svg {
-  cursor: pointer;
-  color: #cccccc;
-  transition: color 0.2s ease;
-}
-
-.tarefa-acoes svg:hover {
-  color: #ffffff;
-}
-
-/* Rodapé */
-.read-the-docs {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 14px;
-  color: #777;
-}
-
-/* Responsividade */
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   .formularios {
     flex-direction: column;
     align-items: center;
+    padding: 30px 20px;
+    gap: 20px;
   }
 
   .barra {
-    width: 80%;
-    height: 2px;
-    background-color: black;
-    margin: 20px 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, 
+      transparent, 
+      rgba(255, 255, 255, 0.2), 
+      transparent);
+  }
+
+  form {
+    width: 100%;
+    max-width: 350px;
   }
 }

@@ -1,73 +1,122 @@
-/* Fundo escuro por trás do modal */
+/* ===== MODAL OVERLAY ===== */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  backdrop-filter: blur(4px); /* Efeito de desfoque no fundo */
+  animation: fadeIn 0.3s ease-out;
 }
 
-/* Conteúdo do modal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== MODAL CONTENT ===== */
 .modal-content {
-  background: #1e1e2f;
-  padding: 30px;
-  border-radius: 12px;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
   width: 90%;
-  max-width: 420px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  gap: 1.5rem;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  animation: modalSlideIn 0.3s ease-out;
 }
 
-/* Título */
+@keyframes modalSlideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ===== TÍTULO ===== */
 .modal-content h2 {
-  color: #ffffff;
-  margin-bottom: 10px;
+  color: var(--text-light);
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
 }
 
-/* Inputs */
+/* ===== INPUTS ===== */
 .modal-content input[type="text"] {
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: calc(var(--border-radius) - 4px);
   outline: none;
-  background-color: #2d2d44;
-  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  transition: all 0.3s ease;
 }
 
-/* Checkbox alinhado */
+.modal-content input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* ===== CHECKBOX ===== */
 .checkbox-container {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem;
   width: 100%;
-  color: #ffffff;
-  font-size: 16px;
-  margin-top: 4px;
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-top: 0.5rem;
 }
 
-/* Estilo do botão */
-.modal-content button {
-  padding: 12px 20px;
-  background-color: #4c8bf5;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
+.checkbox-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary); /* Cor do checkbox quando marcado */
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
+}
+
+/* ===== BOTÕES ===== */
+.modal-content button {
+  padding: 0.8rem;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: calc(var(--border-radius) - 4px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
 }
 
 .modal-content button:hover {
-  background-color: #3b6dd4;
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+}
+
+/* ===== BOTÃO SECUNDÁRIO (CANCELAR) ===== */
+.modal-content .btn-cancel {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.modal-content .btn-cancel:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  transform: translateY(-2px);
 }

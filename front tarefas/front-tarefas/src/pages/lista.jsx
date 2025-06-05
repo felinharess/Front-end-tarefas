@@ -29,7 +29,7 @@ export default function Lista() {
             alert("Erro no sistema")
         }
         try {
-            const retorno = await axios.get('http://localhost:3000/tarefas', {
+            const retorno = await axios.get('https://api-de-tarefas-otqs.onrender.com/tarefas', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

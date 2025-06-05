@@ -13,8 +13,7 @@ function Login() {
   async function logar(event) {
     try {
       event.preventDefault()
-      // console.log(nome, email, senha)
-      const retorno = await axios.post('http://localhost:3000/login',{email, senha})
+      const retorno = await axios.post('https://api-de-tarefas-otqs.onrender.com/login',{email, senha})
       console.log(retorno.data.token)
       if(!retorno.data.token){
         alert("Credenciais invalidas")
@@ -22,6 +21,7 @@ function Login() {
         localStorage.setItem('token', retorno.data.token)
         localStorage.setItem('nome', retorno.data.nome)
         localStorage.setItem('email', retorno.data.email)
+        console.log(localStorage.getItem('nome'))
       navigate('/lista');
     }
     } catch (erro) {
@@ -33,8 +33,8 @@ function Login() {
   async function cadastrar(event) {
     event.preventDefault()
     try{
-      // console.log(nome ,email, senha);
-      const retorno = await axios.post('http://localhost:3000/usuarios',{nome, email, senha})
+      console.log(nome ,email, senha);
+      const retorno = await axios.post('https://api-de-tarefas-otqs.onrender.com/usuarios',{nome, email, senha})
       console.log(retorno.data.token)
       if(!retorno.data.token){
         alert("Dados ja cadastrados") 

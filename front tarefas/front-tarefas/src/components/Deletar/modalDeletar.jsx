@@ -17,7 +17,7 @@ export default function ModalDeletar({ isOpen, onClose, tarefa, deletarTarefa })
   async function apagarTarefa() {
     const token = localStorage.getItem('token')
     try {
-      await axios.delete(`http://localhost:3000/tarefas/${tarefa.id}`, {
+      await axios.delete(`https://api-de-tarefas-otqs.onrender.com/tarefas/${tarefa.id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       deletarTarefa()

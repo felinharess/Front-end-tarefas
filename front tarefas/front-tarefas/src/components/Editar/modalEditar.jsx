@@ -18,7 +18,7 @@ export default function ModalEditar({ isOpen, onClose, tarefa, atualizarTarefas 
   async function editarTarefa() {
     const token = localStorage.getItem('token')
     try {
-      await axios.put(`http://localhost:3000/tarefas/${tarefa.id}`, {
+      await axios.put(`https://api-de-tarefas-otqs.onrender.com/tarefas/${tarefa.id}`, {
         titulo,
         descricao,
         status: status ? "Feita" : "Pendente"

@@ -16,7 +16,7 @@ export default function ModalCriar({ isOpen, onClose, criarTarefa }) {
     async function criarNovaTarefa() {
         const token = localStorage.getItem('token')
         try {
-            await axios.post(`http://localhost:3000/tarefas`, {
+            await axios.post(`https://api-de-tarefas-otqs.onrender.com/tarefas`, {
                 titulo,
                 descricao,
             }, {
